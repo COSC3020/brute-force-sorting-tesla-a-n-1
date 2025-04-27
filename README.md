@@ -11,6 +11,16 @@ The return value should be the number of permutations that were tried until the
 sorted list was "discovered". The unsorted list passed as an argument should be
 sorted, i.e. do not copy the list and sort the copy.
 
+## Runtime Analysis
+
+What is the runtime complexity of the algorithm that you implemented? What does
+a best case input for your implementation look like, what does a worst case
+input look like? How would this complexity change if you generated permutations
+randomly without memory instead of systematically trying them?
+
+Describe your reasoning and the conclusion you've come to. Your reasoning is the
+most important part. Add your answer to this markdown file.
+
 ## To understand:
 
 First generate all possible permutations, check each permutation to see if it's sorted.
@@ -27,7 +37,7 @@ When sorted permutation found, stop and use that arangement.
 ### Complexity:
 
   - n! possible permutations for list of length n as learned in Discrete
-  - checking each permutation would take O(n) time
+  - every attempt at checking if each permutation is sorted would take O(n) time
   - Overall: O(n! x n) horrible efficiency, esspecially if list >10 elements
 
 Best case: Already sorted
@@ -36,20 +46,20 @@ Worst case: reverse order
 
 ### random vs systematic permutation generator
 
-  - Systematic: O(n!) in worst case. guaranteed solution. lexicographic generation. 
+  - Systematic: O(n!) in worst case. guaranteed solution. lexicographic generation.
+      + Lexicographic generation algorithm pseudocode from wikipedia to use as a start:
+          " The following algorithm generates the next permutation lexicographically after a given permutation. It changes the given permutation in-place.
+
+        Find the largest index k such that a[k] < a[k + 1]. If no such index exists, the permutation is the last permutation.
+
+        Find the largest index l greater than k such that a[k] < a[l].
+        
+        Swap the value of a[k] with that of a[l].
+        
+        Reverse the sequence from a[k + 1] up to and including the final element a[n]."
+        
   - Random: O(n! x n) complexity with no upper bound since the approach lacks memory of previously checked permutations
   
 
-## Runtime Analysis
 
-What is the runtime complexity of the algorithm that you implemented? What does
-a best case input for your implementation look like, what does a worst case
-input look like? How would this complexity change if you generated permutations
-randomly without memory instead of systematically trying them?
-
-Describe your reasoning and the conclusion you've come to. Your reasoning is the
-most important part. Add your answer to this markdown file.
-
-
-
-Sources: [Permutations](https://en.wikipedia.org/wiki/Permutation#:~:text=Random%20generation%20of%20permutations,-Main%20article%3A%20Fisher&text=Unlike%20for%20systematic%20generation%2C%20which,random%20one%20of%20the%20n!)
+Sources: [Permutations](https://en.wikipedia.org/wiki/Permutation#:~:text=Random%20generation%20of%20permutations,-Main%20article%3A%20Fisher&text=Unlike%20for%20systematic%20generation%2C%20which,random%20one%20of%20the%20n!) 
