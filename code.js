@@ -71,6 +71,9 @@ function genNextLexicoPerm(a) {
     return true;
 }
 
-
+//maybe this will help the tests
+module.exports = {
+    bruteForceSort
+};
 
 
