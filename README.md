@@ -55,7 +55,7 @@ most important part. Add your answer to this markdown file.
   - every attempt at checking if each permutation is sorted would take O(n) time
   - Overall: O(n! x n) horrible efficiency, esspecially if list >10 elements
 
-Best case: Already sorted &Omega(n)
+Best case: Already sorted $/Omega(n)$
 
 Worst case: reverse order O(n! x n)
 
