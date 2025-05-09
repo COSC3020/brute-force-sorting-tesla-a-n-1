@@ -1,4 +1,4 @@
-function permutationSort(a) {
+mfunction permutationSort(a) {
     let permutationCount = 0;
 
     //first permutation
@@ -73,7 +73,7 @@ function genNextLexicoPerm(a) {
 
 //maybe this will help the tests
 module.exports = {
-    bruteForceSort
+    permutationSort
 };
 
 
