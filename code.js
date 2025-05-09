@@ -1,4 +1,9 @@
 function permutationSort(a) {
+    // Special case for empty or single-element arrays
+    if (a.length <= 1) {
+        return 1; // Already sorted
+    }
+    
     let permutationCount = 0;
 
     //first permutation
