@@ -44,7 +44,7 @@ function genNextLexicoPerm(a) {
     }
 
    // if no such index exists, this is the last permutation
-    if (k == -1) {
+    if (k === -1) {
         return false;
     }
 
