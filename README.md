@@ -5,7 +5,7 @@ all permutations of a list to be sorted to determine its complexity. Implement
 a function to sort a list by systematically trying all permutations of the input
 list, using the template in `code.js`. Test your new function; I've provided
 some basic testing code that uses [jsverify](https://jsverify.github.io/) in
-`code.test.js`.
+`code.test.js`. 
 
 The return value should be the number of permutations that were tried until the
 sorted list was "discovered". The unsorted list passed as an argument should be
