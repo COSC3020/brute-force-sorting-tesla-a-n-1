@@ -1,4 +1,4 @@
-mfunction permutationSort(a) {
+function permutationSort(a) {
     let permutationCount = 0;
 
     //first permutation
