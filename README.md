@@ -61,6 +61,7 @@ Best case: Already sorted $\Omega(n)$
 
 Worst case: reverse order O(n! x n)
 
+Average case: still $O(n! * n)$ since n! permutations are made and each permutation requires O(n) time to check if it's sorted
 
 Sources: [Permutations](https://en.wikipedia.org/wiki/Permutation#:~:text=Random%20generation%20of%20permutations,-Main%20article%3A%20Fisher&text=Unlike%20for%20systematic%20generation%2C%20which,random%20one%20of%20the%20n!) 
 
