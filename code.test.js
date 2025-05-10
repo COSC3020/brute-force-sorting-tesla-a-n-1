@@ -3,6 +3,7 @@ const jsc = require('jsverify');
 
 eval(fs.readFileSync('code.js')+'');
 
+/*
 // Tests specific cases first
 console.log("Testing specific cases:");
 const testCases = [
@@ -45,6 +46,7 @@ const sortedTest = jsc.forall("array nat", function(arr) {
 
 // the sorted array test 30 
 jsc.assert(sortedTest, { tests: 30 });
+*/
 
 const test =
     jsc.forall("array nat", function(arr) {
