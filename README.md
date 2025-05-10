@@ -46,7 +46,9 @@ most important part. Add your answer to this markdown file.
         Swap the value of a[k] with that of a[l].
         
         Reverse the sequence from a[k + 1] up to and including the final element a[n]."
-        
+
+  Instead of using lexicographic permutation generation, I used heap's algorithm
+      
   - Random: O(n! x n) complexity with no upper bound since the approach lacks memory of previously checked permutations
 
 ### Complexity:
@@ -61,6 +63,8 @@ Worst case: reverse order O(n! x n)
 
 
 Sources: [Permutations](https://en.wikipedia.org/wiki/Permutation#:~:text=Random%20generation%20of%20permutations,-Main%20article%3A%20Fisher&text=Unlike%20for%20systematic%20generation%2C%20which,random%20one%20of%20the%20n!) 
+
+ [Heap's Algorithm:](https://en.wikipedia.org/wiki/Heap%27s_algorithm)
 
 For symbols: [Github reference](https://github.com/alemohamad/html-symbols/blob/master/readme.md)
 
