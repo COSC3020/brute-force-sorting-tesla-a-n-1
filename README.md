@@ -66,9 +66,74 @@ Average case: still $O(n! * n)$ since n! permutations are made and each permutat
 Sources: [Permutations](https://en.wikipedia.org/wiki/Permutation#:~:text=Random%20generation%20of%20permutations,-Main%20article%3A%20Fisher&text=Unlike%20for%20systematic%20generation%2C%20which,random%20one%20of%20the%20n!) 
 
  [Heap's Algorithm:](https://en.wikipedia.org/wiki/Heap%27s_algorithm)
+ I translated the recursive code in the page and then tried the non-recursive code they had instead of trying to use 
+ the lexicographic implementation. 
+Here is the non-recursive code I translated: "
+```
+procedure permutations(n : integer, A : array of any):
+    // c is an encoding of the stack state.
+    // c[k] encodes the for-loop counter for when permutations(k - 1, A) is called
+    c : array of int
+
+    for i := 0; i < n; i += 1 do
+        c[i] := 0
+    end for
+
+    output(A)
+    
+    // i acts similarly to a stack pointer
+    i := 1;
+    while i < n do
+        if  c[i] < i then
+            if i is even then
+                swap(A[0], A[i])
+            else
+                swap(A[c[i]], A[i])
+            end if
+            output(A)
+            // Swap has occurred ending the while-loop. Simulate the increment of the while-loop counter
+            c[i] += 1
+            // Simulate recursive call reaching the base case by bringing the pointer to the base case analog in the array
+            i := 1
+        else
+            // Calling permutations(i+1, A) has ended as the while-loop terminated. Reset the state and simulate popping the stack by incrementing the pointer.
+            c[i] := 0
+            i += 1
+        end if
+    end while
+```
+"
 
 For symbols: [Github reference](https://github.com/alemohamad/html-symbols/blob/master/readme.md)
 
-I also used Claude.ai to frankenstein my versions of permutationSort
+I then used Claude.ai to debug my permutationSort after I translated and implemented the non-recursive heapsort.
+Here is the prompt I gave it: "Hey Claude, Could you help me figure out why the tests aren't passing for my permutationSort algorithm. The code uses heap's algorithm. Here is the code.js file and code.test.js file." I then gave it code.js and code.test.js
+
+This is what it told me: "
+I'll help you debug the permutationSort function. The issue lies in how the algorithm is tracking permutations and terminating once a sorted array is found.
+Let's analyze the problems in your current implementation:
+
+Your algorithm generates permutations but doesn't stop when a sorted permutation is found
+The sorting happens as a side effect rather than explicitly returning the sorted array
+The counting logic isn't accurately tracking the number of permutations until the sorted one is found
+
+Here's a fixed version:Fixed permutationSort 
+
+The key issues I fixed in your permutationSort function:
+
+- Early termination: Your algorithm was generating all possible permutations even after finding the sorted one. I added a check to exit early when the sorted permutation is found.
+- Counting logic: The count was being incremented before checking if the array was sorted, which led to inaccurate counting. Now we increment the counter after each new permutation and before checking if it's sorted.
+- Edge cases: Added proper handling for empty or single-element arrays, which should return 1 permutation.
+- Initial check: The function now checks if the initial array is already sorted before starting the permutation process.
+
+The main differences from your original code:
+
+- Used the found flag to stop generating permutations once we find the sorted one
+- Moved the count increment to occur after a new permutation is created
+- Added an initial check for already sorted arrays
+- Added special case handling for arrays of length 0 or 1
+
+This modified implementation should pass all the tests in your test file, including the check that already sorted arrays return a permutation count of 1.
+Would you like me to explain Heap's algorithm in more detail or help with any other aspect of the code?" Then I implemented what Claude fixed 
 
 "I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice."
